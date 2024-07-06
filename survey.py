@@ -1,3 +1,4 @@
+#Marcus C. Rodriguez, Psyc-3110-U70, Experimental Methods Project#
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -61,10 +62,28 @@ def main():
 
     if 'form_submitted' in st.session_state:
         # Slider interactions
-        behavior = st.slider('Behavior (B)', -1.0, 1.0, 0.0, 0.1, key='behavior')
-        emotion = st.slider('Emotion (E)', -1.0, 1.0, 0.0, 0.1, key='emotion')
-        decision = st.slider('Decision (D)', -1.0, 1.0, 0.0, 0.1, key='decision')
-
+        st.markdown("""
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+        	<span>VOTE NOT GUILTY</span>
+        	<span>VOTE GUILTY</span>
+        </div>
+        	""", unsafe_allow_html=True)
+        behavior = st.slider('behavior',-1.0, 1.0, 0.0, 0.1, label_visibility="hidden", key='behavior')
+        st.markdown("""
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+        	<span>Uncaring/Indifference</span>
+        	<span>Compassion/Passion</span>
+        </div>
+        	""", unsafe_allow_html=True)
+        emotion = st.slider('emotion', -1.0, 1.0, 0.0, 0.1, label_visibility="hidden", key='emotion')
+        st.markdown("""
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+        	<span>Didn't Do It</span>
+        	<span>Did It</span>
+        </div>
+        	""", unsafe_allow_html=True)
+        decision = st.slider('decision', -1.0, 1.0, 0.0, 0.1, label_visibility="hidden", key='decision')
+        
         # Save data on finish
         if st.button('FINISH'):
             current_time = pd.Timestamp.now()
