@@ -11,7 +11,7 @@ def main():
 
     # Display static content only once
     if 'content_initialized' not in st.session_state:
-        st.video("./final_instructions.mp4")
+        st_player("https://youtu.be/Q-Ev5tpapV4?si=Pj2W1EXmTefhpcDl")
         st.image("./survey.png")
         st.session_state['content_initialized'] = True
 
